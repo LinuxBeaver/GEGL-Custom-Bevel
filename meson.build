@@ -1,4 +1,4 @@
-project('cbevel', 'c',
+project('cbevel_light', 'c',
   version : '0.1',
   license : 'GPL-3.0-or-later')
 
@@ -10,7 +10,7 @@ gegl = dependency('gegl-0.3', required : false)
 if not gegl.found()
     gegl = dependency('gegl-0.4')
 endif
-shlib = shared_library('cbevel', 'cbevel.c', 'config.h',
+shlib = shared_library('cbevel_light', 'cbevel_light.c', 'config.h',
   c_args : lib_args,
   dependencies : gegl,
   name_prefix : '',
@@ -20,4 +20,3 @@ shlib = shared_library('cbevel', 'cbevel.c', 'config.h',
 stroke_dep = declare_dependency(
   include_directories: include_directories('.'),
   link_with : shlib)
-
